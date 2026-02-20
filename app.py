@@ -14,31 +14,31 @@ app.secret_key = "gla_secret"
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
 # ---------------- DATABASE ----------------
-sqlite3.connect('/tmp/database.db')
-CREATE TABLE IF NOT EXISTS students (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    roll_no TEXT,
-    course TEXT,
-    email TEXT UNIQUE,
-    password TEXT
-)
-''')
+def init_db():
+    conn = sqlite3.connect('/tmp/database.db')
+    conn.execute('''
+    CREATE TABLE IF NOT EXISTS students (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        roll_no TEXT,
+        course TEXT,
+        email TEXT UNIQUE,
+        password TEXT
+    )
+    ''')
 
-conn.execute('''
-CREATE TABLE IF NOT EXISTS items (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    student_email TEXT,
-    item_name TEXT,
-    description TEXT,
-    category TEXT,
-    image TEXT
-)
-''')
-conn.commit()
-conn.close()
-
-# ---------------- EMAIL FUNCTION ----------------
+    conn.execute('''
+    CREATE TABLE IF NOT EXISTS items (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        student_email TEXT,
+        item_name TEXT,
+        description TEXT,
+        category TEXT,
+        image TEXT
+    )
+    ''')
+    conn.commit()
+    conn.close()----- EMAIL FUNCTION ----------------
 def send_email(to_email, item_name):
     try:
         yag = yagmail.SMTP(
@@ -203,5 +203,6 @@ from flask import session, redirect, url_for
 def logout():
     session.clear()   # session remove karega
     return redirect(url_for('login'))  # login page pe bhej dega
+
 
 
