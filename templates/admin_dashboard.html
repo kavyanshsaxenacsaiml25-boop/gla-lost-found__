@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Admin Dashboard</h1>
+    <div class="nav">
+        <a href="/analytics">Analytics</a> |
+        <a href="/logout">Logout</a>
+    </div>
+</header>
+
+<div class="container">
+
+<h2>Total Items: {{ total }}</h2>
+
+<div class="items">
+{% for item in items %}
+    <div class="card">
+        <img src="/uploads/{{item[5]}}">
+        <h3>{{item[2]}}</h3>
+        <p>{{item[3]}}</p>
+        <span class="category">{{item[4]}}</span>
+        <p><b>Student:</b> {{item[1]}}</p>
+    </div>
+{% endfor %}
+</div>
+
+</div>
+
+</body>
+</html>

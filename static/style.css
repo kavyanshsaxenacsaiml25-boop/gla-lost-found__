@@ -1,0 +1,190 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #001f3f, #003366);
+    color: white;
+}
+
+header {
+    background: #002147;
+    padding: 15px;
+    text-align: center;
+}
+
+.nav a {
+    color: gold;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+input, button {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    background: gold;
+    cursor: pointer;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    color: black;
+    width: 250px;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.category {
+    background: #002147;
+    color: gold;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    background: white;
+    color: black;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+.main-header {
+    background: #002147;
+    padding: 20px;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo {
+    width: 90px;
+    height: auto;
+}
+
+.title-area h1 {
+    margin: 0;
+    color: white;
+}
+
+.title-area p {
+    margin: 5px 0;
+    color: #ddd;
+}
+
+.nav a {
+    color: gold;
+    text-decoration: none;
+    margin: 0 8px;
+}
+.gla-header {
+    font-family: Arial, sans-serif;
+}
+
+.header-top {
+    height: 8px;
+    background: gold;
+}
+
+.header-main {
+    background: #002147;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+
+.logo-area .crest {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, gold, #d4af37);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 22px;
+    color: #002147;
+}
+
+.title-area h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.title-area h3 {
+    margin: 0;
+    font-weight: normal;
+}
+
+.title-area p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.nav-area a {
+    color: gold;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.header-bottom {
+    background: linear-gradient(90deg, #0a3d62, #1e8449);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.grade {
+    color: yellow;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.naac {
+    color: gold;
+    font-weight: bold;
+}
+.hero-header {
+    width: 100%;
+    height: 280px;
+    background: url("/static/gla_header.png") no-repeat center center;
+    background-size: cover;
+    position: relative;
+}

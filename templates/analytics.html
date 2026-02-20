@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Analytics Dashboard</h1>
+    <div class="nav">
+        <a href="/">Home</a>
+    </div>
+</header>
+
+<div class="container">
+    {% if data %}
+        <canvas id="chart"></canvas>
+    {% else %}
+        <h2>No Data Available Yet</h2>
+    {% endif %}
+</div>
+
+{% if data %}
+<script>
+const labels = {{ data | map(attribute=0) | list | tojson }};
+const counts = {{ data | map(attribute=1) | list | tojson }};
+
+const ctx = document.getElementById('chart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Items per Category',
+            data: counts,
+            backgroundColor: 'gold'
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: true }
+        }
+    }
+});
+</script>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GLA University - Lost & Found</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="gla-header">
+    <div class="header-top"></div>
+
+    <div class="header-main">
+        <div class="logo-area">
+            <div class="crest">GLA</div>
+        </div>
+
+        <div class="title-area">
+            <h1>GLA University</h1>
+            <h3>Mathura</h3>
+            <p>Established vide U.P. Act 21 of 2010</p>
+        </div>
+
+        <div class="nav-area">
+            {% if session.get('student') %}
+                Welcome {{ session['student'] }} |
+                <a href="/logout">Logout</a> |
+                <a href="/analytics">Analytics</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="header-bottom">
+        Accredited with <span class="grade">A</span> Grade by <span class="naac">NAAC</span> | Digital Lost & Found Management System
+    </div>
+</header>
+
+<div class="container">
+
+{% if session.get('student') %}
+    <div class="form-section">
+        <h2>Report Lost / Found Item</h2>
+        <form action="/add" method="post" enctype="multipart/form-data">
+            <input type="text" name="item_name" placeholder="Item Name" required>
+            <input type="text" name="description" placeholder="Description" required>
+            <input type="text" name="category" placeholder="Category" required>
+            <input type="file" name="image" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+{% endif %}
+
+<div class="search-section">
+    <h2>Search Item</h2>
+    <form action="/search" method="post">
+        <input type="text" name="keyword" placeholder="Search item">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<hr>
+
+<h2>Reported Items</h2>
+
+<div class="items">
+{% for item in items %}
+    <div class="card">
+        <img src="/uploads/{{item[5]}}">
+        <h3>{{item[2]}}</h3>
+        <p>{{item[3]}}</p>
+        <span class="category">{{item[4]}}</span>
+        <p><b>Reported by:</b> {{item[1]}}</p>
+    </div>
+{% endfor %}
+</div>
+
+</div>
+
+</body>
+</html>
