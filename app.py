@@ -12,8 +12,7 @@ app.secret_key = "gla_secret"
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
 # ---------------- DATABASE ----------------
-conn = sqlite3.connect('database.db')
-conn.execute('''
+sqlite3.connect('/tmp/database.db')
 CREATE TABLE IF NOT EXISTS students (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
@@ -202,3 +201,4 @@ from flask import session, redirect, url_for
 def logout():
     session.clear()   # session remove karega
     return redirect(url_for('login'))  # login page pe bhej dega
+
