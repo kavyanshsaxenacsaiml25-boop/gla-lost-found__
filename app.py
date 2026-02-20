@@ -1,5 +1,7 @@
 from flask import Flask
 app = Flask(__name__)
+import os
+os.makedirs('/tmp', exist_ok=True)
 import yagmail
 from flask import Flask, render_template, request, redirect, session, send_from_directory
 import sqlite3
@@ -201,4 +203,5 @@ from flask import session, redirect, url_for
 def logout():
     session.clear()   # session remove karega
     return redirect(url_for('login'))  # login page pe bhej dega
+
 
